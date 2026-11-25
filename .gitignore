@@ -1,0 +1,19 @@
+# Build output
+target/
+*.class
+*.jar
+
+# Code Shadow / local tooling
+.squad/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.ipr
+*.iws
+
+# OS / logs
+.DS_Store
+Thumbs.db
+*.log

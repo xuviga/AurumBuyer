@@ -1,0 +1,28 @@
+# AurumBuyer shop by XuViGaN
+# Shop cost of the next purchase:
+#   cost = base-cost * (1 + price-increase-percent / 100) ^ boughtByPlayer
+# slot задаёт позицию, пока товары помещаются на страницу; при переполнении
+# включается пагинация «Назад/Вперёд», а порядок задаётся полем slot.
+items:
+  golden_apple:
+    material: GOLDEN_APPLE
+    amount: 8
+    slot: 10
+    display: "&6Золотое яблоко &7x8"
+    lore:
+      - "&7Стоимость: &e%cost% {points}"
+      - "&7Куплено: &f%bought%&7/&f%personal_limit%"
+      - "&7Всего куплено: &f%global_bought%&7/&f%global_limit%"
+    base-cost: 500.0
+    price-increase-percent: 10.0
+    global-limit: 200
+    personal-limit: 5
+    permission: ""
+    custom-model-data: 0
+    glow: false
+    commands:
+      - "give %player% golden_apple 8"
+    messages:
+      success: "&aВы купили %display%"
+      limit-reached: "&cДостигнут лимит покупок."
+      no-permission: "&cНедостаточно прав."

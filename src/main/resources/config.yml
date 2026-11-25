@@ -1,0 +1,124 @@
+# AurumBuyer by XuViGaN
+version: 1
+
+general:
+  save-interval-seconds: 300     # профили и globallimits.yml сбрасываются на диск не чаще этого периода
+  history-size: 100
+  sound-enabled: true
+  sounds:
+    click: UI_BUTTON_CLICK
+    sell: ENTITY_EXPERIENCE_ORB_PICKUP
+    error: ENTITY_VILLAGER_NO
+    success: ENTITY_PLAYER_LEVELUP
+
+economy:
+  # Vault is used when present. If absent, INTERNAL mode gives players a
+  # plugin-owned balance stored in playerdata (works standalone).
+  mode: VAULT            # VAULT | INTERNAL
+  # отображаемое имя валюты задаётся в messages.yml -> points-name
+  currency-format: "#,##0.00"
+  internal:
+    start-balance: 0.0
+
+sell:
+  # every unit of money sold gives this percentage as Aurum points
+  points-percent: 5.0
+
+multiplier:
+  enabled: true
+  # every `step` of personally sold money adds `per-step-percent`
+  step: 100000.0
+  per-step-percent: 2.0
+  max-percent: 100.0
+  # optional explicit table; when non-empty it wins over step math
+  tiers:
+    - 0.0
+    - 100000.0
+    - 500000.0
+    - 2000000.0
+
+auto-sell:
+  enabled: true
+  interval-ticks: 100
+  require-permission: false      # требовать aurum.auto для работы и включения
+  min-items: 1                   # минимум продаваемых предметов для срабатывания цикла
+  max-items-per-cycle: 2304
+  # первый слот хотбара (обычно основной инструмент) не продаётся по умолчанию
+  ignore-slots:
+    - 0
+
+limits:
+  global-reset-hours: 24
+  personal-reset-hours: 24
+
+ulta:
+  enabled: true
+  points-percent: 5.0      # % of sold money -> ulta points
+  max-points: 50000.0
+  cost: 5000.0             # ulta points price of one activation
+  percent: 25.0            # temporary bonus to every category
+  minutes: 10
+  cooldown-minutes: 30
+
+shop:
+  enabled: true
+  price-increase-percent: 8.0
+  max-purchases-per-click: 1     # сколько покупок делает Shift+ЛКМ за один клик
+  require-permission: false      # требовать aurum.shop для входа в магазин
+
+placeholders:
+  top-size: 10
+  refresh-seconds: 120
+
+gui:
+  filler:
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "
+    custom-model-data: 0
+  main:
+    title: "&8Главное меню &8> &6AurumBuyer"
+    items:
+      shop:
+        material: CHEST
+        slot: 20
+        name: "&6Магазин аурумов"
+        custom-model-data: 0
+      history:
+        material: BOOK
+        slot: 21
+        name: "&eИстория продаж"
+        custom-model-data: 0
+      settings:
+        material: COMPARATOR
+        slot: 22
+        name: "&bНастройки"
+        custom-model-data: 0
+      boosters:
+        material: EXPERIENCE_BOTTLE
+        slot: 23
+        name: "&aБустеры"
+        custom-model-data: 0
+      limits:
+        material: CLOCK
+        slot: 24
+        name: "&dЛимиты"
+        custom-model-data: 0
+      ulta:
+        material: BLAZE_POWDER
+        slot: 40
+        name: "&6&lУльта аурумов"
+        custom-model-data: 0
+  shop:
+    title: "&8Магазин аурумов"
+    slots: 54
+  history:
+    title: "&8История продаж"
+    entries-per-page: 45
+  settings:
+    title: "&8Настройки аурумов"
+  boosters:
+    title: "&8Бустеры аурумов"
+  limits:
+    title: "&8Лимиты аурумов"
+  admin:
+    title: "&8AurumBuyer &7- админ"

@@ -1,0 +1,41 @@
+# Every category is a booster line. Items reference categories in prices.yml.
+categories:
+  ores:
+    display: "&bРуды"
+    material: DIAMOND_ORE
+    slot: 11
+    max-level: 20
+    base-cost: 2500.0
+    cost-growth-percent: 15.0      # cost(level) = base * (1+growth/100)^level
+    percent-per-level: 5.0
+    custom-model-data: 0
+    lore:
+      - "&7Уровень: &f%level%&7/&f%max_level%"
+      - "&7Бонус: &a+%percent%%"
+      - "&7Следующий уровень: &e+%next_bonus%% &7за &e%next_cost%"
+  farming:
+    display: "&aЗемледелие"
+    material: WHEAT
+    slot: 12
+    max-level: 20
+    base-cost: 2000.0
+    cost-growth-percent: 15.0
+    percent-per-level: 5.0
+    custom-model-data: 0
+    lore:
+      - "&7Уровень: &f%level%&7/&f%max_level%"
+      - "&7Бонус: &a+%percent%%"
+      - "&7Следующий уровень: &e+%next_bonus%% &7за &e%next_cost%"
+  monster:
+    display: "&cМонстры"
+    material: ROTTEN_FLESH
+    slot: 13
+    max-level: 20
+    base-cost: 3000.0
+    cost-growth-percent: 15.0
+    percent-per-level: 5.0
+    custom-model-data: 0
+    lore:
+      - "&7Уровень: &f%level%&7/&f%max_level%"
+      - "&7Бонус: &a+%percent%%"
+      - "&7Следующий уровень: &e+%next_bonus%% &7за &e%next_cost%"
