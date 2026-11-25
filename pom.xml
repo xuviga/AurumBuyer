@@ -6,11 +6,11 @@
 
     <groupId>com.xuvigan</groupId>
     <artifactId>AurumBuyer</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
     <name>AurumBuyer</name>
-    <description>Advanced item buyer (collector) for Paper 1.16.1 - 1.21.x by XuViGaN</description>
+    <description>Advanced item buyer (collector) for Paper 1.16.1 - 1.21.x and 26.x by XuViGaN</description>
     <url>https://github.com/xuviga/AurumBuyer</url>
 
     <properties>
@@ -19,6 +19,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spigot-api.version>1.16.5-R0.1-SNAPSHOT</spigot-api.version>
     </properties>
 
     <repositories>
@@ -44,7 +45,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>${spigot-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- compile only: the expansion class is loaded reflectively at runtime -->
@@ -96,4 +97,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>latest</id>
+            <properties>
+                <spigot-api.version>26.3-R0.1-SNAPSHOT</spigot-api.version>
+            </properties>
+        </profile>
+    </profiles>
 </project>

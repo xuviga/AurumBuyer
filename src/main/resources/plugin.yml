@@ -1,9 +1,9 @@
 name: AurumBuyer
-version: 1.1.0
+version: 1.2.0
 main: com.xuvigan.aurumbuyer.AurumBuyer
 api-version: 1.16
 author: XuViGaN
-description: Advanced item buyer (collector) for Paper 1.16.1 - 1.21.x by XuViGaN
+description: Advanced item buyer (collector) for Paper 1.16.1 - 1.21.x and 26.x by XuViGaN
 website: https://github.com/xuviga/AurumBuyer
 softdepend:
   - Vault

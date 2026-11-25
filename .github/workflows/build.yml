@@ -11,23 +11,27 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - java: '21'
+            profile: ''
+            label: legacy
+          - java: '25'
+            profile: '-Platest'
+            label: latest
+    name: JDK ${{ matrix.java }} (${{ matrix.label }})
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK ${{ matrix.java }}
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: ${{ matrix.java }}
           cache: maven
 
-      - name: Build and test
-        run: mvn -B clean verify
-
-      - name: Upload plugin jar
-        uses: actions/upload-artifact@v4
-        with:
-          name: AurumBuyer
-          path: target/AurumBuyer-*.jar
-          if-no-files-found: error
+      - name: Build (verify)
+        run: mvn -B ${{ matrix.profile }} clean verify
